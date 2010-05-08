@@ -88,7 +88,7 @@ module Vanity
         first = args.shift || 90
         to = args.shift || Date.today
         from = first.respond_to?(:to_date) ? first.to_date : to - (first - 1)
-        (from..to).zip(metric.values(from, to))
+        (from..to).zip(metric.values(from, to)).reject{|i|i[1].zero?}
       end
 
       # Playground uses this to load metric definitions.
