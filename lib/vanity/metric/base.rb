@@ -139,6 +139,12 @@ module Vanity
       end
     end
 
+    # Explicity set a value
+    def set!(date, value)
+      redis.set key(date, "count"), value
+      @playground.logger.info "vanity: #{@id} set to #{value}"
+    end
+      
     # Metric definitions use this to introduce tracking hook.  The hook is
     # called with metric identifier, timestamp, count and possibly additional
     # arguments.

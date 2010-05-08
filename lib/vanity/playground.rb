@@ -140,6 +140,14 @@ module Vanity
       metric(id).track! count
     end
 
+    # Explicity set a value
+    #
+    # @example
+    #   Vanity.playground.set! :uploaded_video, '2010-04-01', 356
+    #    
+    def set!(id, date, value)
+      metric(id).set! date, value
+    end
 
     # -- Connection management --
    
